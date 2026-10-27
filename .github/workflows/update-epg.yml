@@ -1,0 +1,24 @@
+name: Refresh Gemini EPG data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 */6 * * *'
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python build_epg.py --output data
+      - name: Publish JSON and CSV exports
+        run: |
+          mkdir -p docs
+          cp data/channels.json data/channels.csv data/sports_events.json data/status.json docs/
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add docs
+          git diff --staged --quiet || (git commit -m 'Update EPG data' && git push)
