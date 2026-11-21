@@ -1,8 +1,8 @@
 {
-  "generated_utc": "2026-11-21T07:02:03.386502+00:00",
+  "generated_utc": "2026-11-21T19:11:52.101602+00:00",
   "source": "https://github.com/ferteque/Curated-M3U-Repository/raw/refs/heads/main/epg6.xml.gz",
-  "channel_count": 15349,
-  "programme_count": 464193,
-  "future_sports_candidates": 52645,
+  "channel_count": 15498,
+  "programme_count": 463211,
+  "future_sports_candidates": 32330,
   "note": "Sport and live labels are heuristic; verify title and broadcast before adding calendar events."
 }
